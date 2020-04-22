@@ -10,7 +10,7 @@ var inquirer = require("inquirer")
 
 var connection = mysql.createConnection({
     host: "local host",
-    port: 7000,
+    port: 3306,
     user: "root",
     password: "Winnie5760!",
     database: "bamazonDB"
