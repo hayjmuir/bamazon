@@ -18,7 +18,7 @@ var connection = mysql.createConnection({
 
 
 function productItems() {
-    connection(function (err) {
+    connection.connect(function (err) {
         connection.query("SELECT * FROM products", function (err, res) {
             if (err) throw err
             else console.table(res, "\n")
