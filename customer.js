@@ -10,7 +10,7 @@ var inquirer = require("inquirer")
 
 var connection = mysql.createConnection({
     host: "local host",
-    port: 3000,
+    port: 7000,
     user: "root",
     password: "Winnie5760!",
     database: "bamazonDB"
@@ -67,17 +67,17 @@ function productID() {
                 connection.query("UPDATE products SET stockQuantity=? WHERE item_id=?", [remainingQuantity, answer.id], function (err, res) {
                     console.table(res)
                 })
-                connection.query("SELECT * FROM products", function(err, res) {
+                connection.query("SELECT * FROM products", function (err, res) {
 
                     console.log("This is the updated inventory of product items: ")
                     console.log("------------------------------- \n")
                     console.table(res)
                 })
 
-            }else {
+            } else {
                 console.log("Insufficient amounts, please edit your units!");
             }
-connection.end()
+            connection.end()
         })
     })
 
