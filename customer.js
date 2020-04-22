@@ -64,12 +64,20 @@ function productID() {
                 console.log("Amount Remaining: " + remainingQuantity)
                 console.log("Total Cost: " + (answer.quant * price) + "\n")
 
-                connection.query("UPDATE products SET stockQuantity=? WHERE item_id=?", [ remainingQuantity, answer.id ], function(err,res){
+                connection.query("UPDATE products SET stockQuantity=? WHERE item_id=?", [remainingQuantity, answer.id], function (err, res) {
+                    console.table(res)
+                })
+                connection.query("SELECT * FROM products", function(err, res) {
+
+                    console.log("This is the updated inventory of product items: ")
+                    console.log("------------------------------- \n")
                     console.table(res)
                 })
 
-                
+            }else {
+                console.log("Insufficient amounts, please edit your units!");
             }
+connection.end()
         })
     })
 
