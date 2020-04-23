@@ -9,7 +9,7 @@ var inquirer = require("inquirer")
 
 
 var connection = mysql.createConnection({
-    host: "local host",
+    host: "localhost",
     port: 3306,
     user: "root",
     password: "Winnie5760!",
